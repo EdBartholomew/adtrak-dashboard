@@ -1,0 +1,22 @@
+.outer-container .line {
+	height: 7px;
+	margin-left: -20px;
+	display: flex;
+}
+
+.outer-container .line div {
+	width: 100%;
+	height: 100%;
+}
+
+.outer-container .line div:nth-child(1) {
+	background-color: var(--orange);
+}
+
+.outer-container .line div:nth-child(2) {
+	background-color: var(--blue);
+}
+
+.outer-container .line div:nth-child(3) {
+	background-color: var(--blue-light);
+}

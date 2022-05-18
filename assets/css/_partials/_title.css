@@ -1,0 +1,29 @@
+.outer-container .title {
+	margin-top: 50px;
+	margin-bottom: 40px;
+}
+
+.outer-container .title a {
+	width: fit-content;
+	display: block;
+}
+
+.outer-container .title svg {
+	width: 160px;
+	height: 35px;
+}
+
+.outer-container .title h1 {
+	font-family: 'Mont';
+	margin-top: 10px;
+	font-size: 0.9rem;
+	display: inline-block;
+	margin: 0;
+	margin-top: 7px;
+}
+
+.outer-container .title span {
+	font-family: 'Aribau Grotesk';
+	font-size: 11px;
+	color: gray;
+}

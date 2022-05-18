@@ -1,0 +1,25 @@
+{
+	"componentDef": "forceSearch:searchPageDesktop",
+	"attributes": {
+		"term": "",
+		"scopeMap": {
+			"type": "TOP_RESULTS",
+			"label": "Top Results",
+			"labelPlural": "Top Results",
+			"resultsCmp": "forceSearch:predictedResults"
+		},
+		"context": {
+			"disableIntentQuery": false,
+			"disableSpellCorrection": false,
+			"permsAndPrefs": {
+				"SearchUi.feedbackComponentEnabled": false,
+				"OrgPreferences.ChatterEnabled": true,
+				"Search.crossObjectsAutoSuggestEnabled": true,
+				"OrgPreferences.EinsteinSearchNaturalLanguageEnabled": true,
+				"SearchUi.searchUIInteractionLoggingEnabled": false,
+				"MySearch.userCanHaveMySearchBestResult": true,
+				"SearchResultsLVM.lvmEnabledForTopResults": false
+			}
+		}
+	}
+}

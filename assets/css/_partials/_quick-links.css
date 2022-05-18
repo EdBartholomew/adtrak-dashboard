@@ -1,0 +1,27 @@
+.outer-container .quick-links a {
+	background-color: #e1f1ff;
+	padding: 12px 22px;
+	text-decoration: none;
+	color: var(--blue);
+	transition: all 200ms;
+	fill: currentColor;
+	display: inline-flex;
+	align-items: center;
+	margin-right: 10px;
+}
+
+.outer-container .quick-links a svg {
+	height: 28px;
+	width: 28px;
+	margin-right: 7px;
+}
+
+.outer-container .quick-links a:hover {
+	color: white;
+	background-color: var(--orange);
+	box-shadow: rgba(0, 0, 0, 0.15) 0 6px 12px 0; /* X, Y, Blur, Distance */
+}
+
+.outer-container .quick-links {
+	display: flex;
+}

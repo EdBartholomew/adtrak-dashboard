@@ -1,0 +1,16 @@
+#wpfooter {
+	display: none;
+}
+
+body {
+	background-color: white !important;
+}
+
+.inner-container {
+	position: relative;
+	margin: 0px 40px 0 20px;
+}
+
+.outer-container .card {
+	margin-top: 0;
+}

@@ -1,0 +1,38 @@
+.outer-container .card {
+	margin-top: 0;
+	text-decoration: none;
+	justify-items: center;
+	margin-right: 0.7rem;
+	width: 220px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 25px 18px;
+	background-color: var(--blue);
+	color: white;
+	border: 1px solid var(--blue);
+	transition: all 200ms;
+}
+
+.outer-container .card:hover {
+	color: white;
+	background-color: var(--orange);
+	border: 1px solid transparent;
+	transform-origin: top;
+	transform: perspective(1200px) rotateX(20deg);
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 60px 123px -25px, rgba(0, 0, 0, 0.25) 0px 35px 75px -35px; /* X, Y, Blur, Distance */
+}
+
+.outer-container .card span {
+	margin-top: 15px;
+}
+
+.outer-container .card svg {
+	fill: currentColor;
+	width: fit-content;
+	height: 40px;
+}
+
+.outer-container .card-row {
+	display: flex;
+}
