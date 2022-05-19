@@ -2,8 +2,8 @@
 
 /*
 Plugin Name: Adtrak Dashboard
-Description: A standalone plugin variant of the Adtrak custom WordPress dashboard.
-Version: 1.0.0
+Description: Replaces the default dashboard with a developer focused one.
+Version: 1.0.1
 Author: Adtrak
 Author URI: https://adtrak.co.uk
 License: GPLv3
@@ -15,15 +15,18 @@ if (!defined('WPINC')) {
 	die;
 };
 
-class adtrak_dashboard {
+class Adtrak_Dashboard {
 
-	public $version = 'v1.0.0';
+	// Variables
+	public $version = 'v1.0.1';
 
+	// Constructor
 	function __construct() {
-		add_action('admin_menu', array(&$this, 'register_menu'));
-		add_action('load-index.php', array(&$this, 'redirect_dashboard'));
-		add_action('admin_head', array(&$this, 'remove_menu'));
 		add_action('plugins_loaded', array(&$this, 'github_updater'));
+		add_action('after_setup_theme', array(&$this, 'backwards_compatibility'));
+		add_action('admin_menu', array(&$this, 'register_menu'));
+		add_action('admin_head', array(&$this, 'remove_menu'));
+		add_action('load-index.php', array(&$this, 'redirect_dashboard'));
 	}
 
 	// GitHub updater
@@ -35,6 +38,15 @@ class adtrak_dashboard {
 			'adtrak-dashboard'
 		);
 		$myUpdateChecker->setBranch('master');
+	}
+
+	// Override old Adtrak Daskboard
+	function backwards_compatibility() {
+		global $custom_dashboard;
+		if (isset($custom_dashboard)) {
+			remove_action('admin_menu', array($custom_dashboard, 'adtrak_register_menu'));
+			remove_action('load-index.php', array($custom_dashboard, 'adtrak_redirect_dashboard'));
+		};
 	}
 
 	// Helper function to return svgs from the sprite
@@ -65,16 +77,6 @@ class adtrak_dashboard {
 		);
 	}
 
-	// Redirect the default dashboard to the custom one
-	function redirect_dashboard() {
-		if (is_admin()) {
-			$screen = get_current_screen();
-			if ($screen->base == 'dashboard') {
-				wp_redirect(admin_url('index.php?page=adtrak-dashboard'));
-			}
-		}
-	}
-
 	// Register the custom dashbord page and call the 'create_dashboard' function
 	function register_menu() {
 		add_dashboard_page('Dashboard', 'Dashboard', 'read', 'adtrak-dashboard', array(&$this, 'create_dashboard'));
@@ -90,6 +92,16 @@ class adtrak_dashboard {
 		require_once __DIR__ . '/assets/php/layout.php';
 	}
 
+	// Redirect the default dashboard to the custom one
+	function redirect_dashboard() {
+		if (is_admin()) {
+			$screen = get_current_screen();
+			if ($screen->base == 'dashboard') {
+				wp_redirect(admin_url('index.php?page=adtrak-dashboard'));
+			};
+		};
+	}
+
 };
 
-new adtrak_dashboard();
+new Adtrak_Dashboard();
