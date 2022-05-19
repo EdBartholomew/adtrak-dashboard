@@ -3,7 +3,7 @@
 /*
 Plugin Name: Adtrak Dashboard
 Description: Replaces the default dashboard with a developer focused one.
-Version: 1.0.1
+Version: 1.0.2
 Author: Adtrak
 Author URI: https://adtrak.co.uk
 License: GPLv3
@@ -18,7 +18,7 @@ if (!defined('WPINC')) {
 class Adtrak_Dashboard {
 
 	// Variables
-	public $version = 'v1.0.1';
+	public $version = 'v1.0.2';
 
 	// Constructor
 	function __construct() {
@@ -57,15 +57,20 @@ class Adtrak_Dashboard {
 	// Create the links for the 'Quick Links' section
 	function quick_links() {
 		// Get theme folder name
-		$theme_directory_path = get_template_directory();
+		$theme_directory_path = get_stylesheet_directory_uri();
 		$patten = '([^\/]+$)';
 		preg_match($patten, $theme_directory_path, $match);
 		$theme_directory_name = $match[0];
 
+		// Get the site name
+		$site_name = get_bloginfo('name');
+		$site_name_decode = htmlspecialchars_decode($site_name, ENT_QUOTES);
+		$site_name_cleaned = str_replace(['"',"'"], "", $site_name_decode);
+
 		// Create Salesforce search query
 		$salesforce_json = file_get_contents(__DIR__ . '/assets/json/salesforce.json');
 		$salesforce_search_array = json_decode($salesforce_json, true);
-		$salesforce_search_array['attributes']['term'] = get_bloginfo('name');
+		$salesforce_search_array['attributes']['term'] = $site_name_cleaned;
 		$salesforce_search_array_json_encoded = json_encode($salesforce_search_array);
 		$salesforce_search_array_base64_encoded = base64_encode($salesforce_search_array_json_encoded);
 
