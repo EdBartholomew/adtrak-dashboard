@@ -65,7 +65,7 @@
 					<?php echo $this->sprite('signpost') ?>
 					<span>Permalinks</span>
 				</a>
-				<a class="card" href="<?php echo home_url(); ?>/wp-admin/admin.php?page=site-options">
+				<a class="card" href="<?php echo $this->site_options() ?>">
 					<?php echo $this->sprite('settings') ?>
 					<span>Site Options</span>
 				</a>

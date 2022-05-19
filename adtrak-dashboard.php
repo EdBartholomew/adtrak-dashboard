@@ -3,7 +3,7 @@
 /*
 Plugin Name: Adtrak Dashboard
 Description: Replaces the default dashboard with a developer focused one.
-Version: 1.0.2
+Version: 1.0.3
 Author: Adtrak
 Author URI: https://adtrak.co.uk
 License: GPLv3
@@ -18,7 +18,7 @@ if (!defined('WPINC')) {
 class Adtrak_Dashboard {
 
 	// Variables
-	public $version = 'v1.0.2';
+	public $version = 'v1.0.3';
 
 	// Constructor
 	function __construct() {
@@ -40,12 +40,22 @@ class Adtrak_Dashboard {
 		$myUpdateChecker->setBranch('master');
 	}
 
-	// Override old Adtrak Daskboard
+	// Override old Adtrak dashboard
 	function backwards_compatibility() {
 		global $custom_dashboard;
 		if (isset($custom_dashboard)) {
 			remove_action('admin_menu', array($custom_dashboard, 'adtrak_register_menu'));
 			remove_action('load-index.php', array($custom_dashboard, 'adtrak_redirect_dashboard'));
+		};
+	}
+
+	// Helper function to return the correct site options links
+	function site_options() {
+		global $admin_page_hooks;
+		if (isset($admin_page_hooks['site-options'])) {
+			return home_url() . '/wp-admin/admin.php?page=site-options';
+		} elseif (isset($admin_page_hooks['site-specific'])) {
+			return home_url() . '/wp-admin/admin.php?page=site-specific';
 		};
 	}
 
