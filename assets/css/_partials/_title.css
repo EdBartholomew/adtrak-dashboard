@@ -14,7 +14,7 @@
 }
 
 .outer-container .title h1 {
-	font-family: 'Mont';
+	font-family: var(--font-primary);
 	margin-top: 10px;
 	font-size: 0.9rem;
 	display: inline-block;
@@ -23,7 +23,7 @@
 }
 
 .outer-container .title span {
-	font-family: 'Aribau Grotesk';
+	font-family: var(--font-secondary);
 	font-size: 11px;
 	color: gray;
 }
