@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.4] - 20-05-2022
+
+-   Style adjustments
+
 ## [1.0.3] - 19-05-2022
 
 -   Fixed site options link on older boilerplates
@@ -16,6 +20,7 @@
 
 -   First release
 
+[1.0.4]: https://github.com/EdBartholomew/adtrak-dashboard/releases/tag/v1.0.4
 [1.0.3]: https://github.com/EdBartholomew/adtrak-dashboard/releases/tag/v1.0.3
 [1.0.2]: https://github.com/EdBartholomew/adtrak-dashboard/releases/tag/v1.0.2
 [1.0.1]: https://github.com/EdBartholomew/adtrak-dashboard/releases/tag/v1.0.1

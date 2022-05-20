@@ -3,7 +3,7 @@
 /*
 Plugin Name: Adtrak Dashboard
 Description: Replaces the default dashboard with a developer focused one.
-Version: 1.0.3
+Version: 1.0.4
 Author: Adtrak
 Author URI: https://adtrak.co.uk
 License: GPLv3
@@ -18,7 +18,7 @@ if (!defined('WPINC')) {
 class Adtrak_Dashboard {
 
 	// Variables
-	public $version = 'v1.0.3';
+	public $version = 'v1.0.4';
 
 	// Constructor
 	function __construct() {
@@ -66,7 +66,7 @@ class Adtrak_Dashboard {
 
 	// Create the links for the 'Quick Links' section
 	function quick_links() {
-		// Get theme folder name
+		// Get the theme folder name
 		$theme_directory_path = get_stylesheet_directory_uri();
 		$patten = '([^\/]+$)';
 		preg_match($patten, $theme_directory_path, $match);
@@ -74,8 +74,8 @@ class Adtrak_Dashboard {
 
 		// Get the site name
 		$site_name = get_bloginfo('name');
-		$site_name_decode = htmlspecialchars_decode($site_name, ENT_QUOTES);
-		$site_name_cleaned = str_replace(['"',"'"], "", $site_name_decode);
+		$site_name_decoded = htmlspecialchars_decode($site_name, ENT_QUOTES);
+		$site_name_cleaned = str_replace(['"',"'"], "", $site_name_decoded);
 
 		// Create Salesforce search query
 		$salesforce_json = file_get_contents(__DIR__ . '/assets/json/salesforce.json');

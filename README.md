@@ -13,11 +13,11 @@ Adtrak Dashboard is a WordPress plugin which replaces the default dashboard with
 
 ## 1. Screenshot
 
-<img src="screenshot-v1.0.0.png">
+<img src="screenshot-v1.0.4.png">
 
 <a name="gettingstarted"></a>
 
-## 2. Getting Started
+## 2. Getting started
 
 1. Download the [the latest release](https://github.com/EdBartholomew/adtrak-dashboard/releases/latest).
 2. Go to the WordPress Admin Panel for your website and click the "Add New" under the "Plugins" heading on the sitebar.

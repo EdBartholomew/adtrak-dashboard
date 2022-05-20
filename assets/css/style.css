@@ -6,6 +6,20 @@
 @import '_partials/_title.css';
 @import '_partials/_quick-links.css';
 
+.outer-container {
+	font-family: var(--font-secondary);
+	font-size: 14px;
+}
+
+.outer-container h2 {
+	font-family: var(--font-primary);
+	font-size: 1.05rem;
+	color: var(--blue-dark);
+	margin: 0;
+	text-align: left;
+	margin-bottom: 15px;
+}
+
 section {
 	margin-top: 30px;
 }
