@@ -3,7 +3,7 @@
 /*
 Plugin Name: Adtrak Dashboard
 Description: Replaces the default dashboard with a developer focused one.
-Version: 1.0.4
+Version: 1.0.5
 Author: Adtrak
 Author URI: https://adtrak.co.uk
 License: GPLv3
@@ -18,7 +18,7 @@ if (!defined('WPINC')) {
 class Adtrak_Dashboard {
 
 	// Variables
-	public $version = 'v1.0.4';
+	public $version = 'v1.0.5';
 
 	// Constructor
 	function __construct() {
@@ -46,6 +46,15 @@ class Adtrak_Dashboard {
 		if (isset($custom_dashboard)) {
 			remove_action('admin_menu', array($custom_dashboard, 'adtrak_register_menu'));
 			remove_action('load-index.php', array($custom_dashboard, 'adtrak_redirect_dashboard'));
+		};
+	}
+
+	// Helper function to return the correct pages links (adds support for the Nested Pages plugin)
+	function pages() {
+		if (is_plugin_active('wp-nested-pages/nestedpages.php')) {
+			return home_url() . '/wp-admin/admin.php?page=nestedpages';
+		} else {
+			return home_url() . '/wp-admin/edit.php?post_type=page';
 		};
 	}
 
@@ -86,7 +95,7 @@ class Adtrak_Dashboard {
 
 		// Return links as an array
 		return array(
-			'deployhq'  => 'https://deploy.adtrakdev.com/projects/' . $theme_directory_name . '/overview',
+			'deployhq' => 'https://deploy.adtrakdev.com/projects/' . $theme_directory_name . '/overview',
 			'gitlab' => 'https://gitlab.com/adtrak-web/' . $theme_directory_name,
 			'salesforce' => 'https://adtrak.lightning.force.com/one/one.app#' . $salesforce_search_array_base64_encoded,
 		);

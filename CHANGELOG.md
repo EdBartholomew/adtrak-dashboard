@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.5] - 26-05-2022
+
+-   Adds support for the Nested Pages plugin
+
 ## [1.0.4] - 20-05-2022
 
 -   Style adjustments
@@ -20,6 +24,7 @@
 
 -   First release
 
+[1.0.5]: https://github.com/EdBartholomew/adtrak-dashboard/releases/tag/v1.0.5
 [1.0.4]: https://github.com/EdBartholomew/adtrak-dashboard/releases/tag/v1.0.4
 [1.0.3]: https://github.com/EdBartholomew/adtrak-dashboard/releases/tag/v1.0.3
 [1.0.2]: https://github.com/EdBartholomew/adtrak-dashboard/releases/tag/v1.0.2

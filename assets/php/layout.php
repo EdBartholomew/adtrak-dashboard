@@ -32,7 +32,7 @@
 		<section>
 			<h2>Content</h2>
 			<div class="card-row">
-				<a class="card" href="<?php echo home_url(); ?>/wp-admin/edit.php?post_type=page">
+				<a class="card" href="<?php echo $this->pages() ?>">
 					<?php echo $this->sprite('page') ?>
 					<span>Pages</span>
 				</a>
