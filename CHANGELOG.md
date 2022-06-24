@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.6] - 24-06-2022
+
+-   Ensures the dashboard only appears if the current user is an administrator
+
 ## [1.0.5] - 26-05-2022
 
 -   Adds support for the Nested Pages plugin
@@ -24,6 +28,7 @@
 
 -   First release
 
+[1.0.6]: https://github.com/EdBartholomew/adtrak-dashboard/releases/tag/v1.0.6
 [1.0.5]: https://github.com/EdBartholomew/adtrak-dashboard/releases/tag/v1.0.5
 [1.0.4]: https://github.com/EdBartholomew/adtrak-dashboard/releases/tag/v1.0.4
 [1.0.3]: https://github.com/EdBartholomew/adtrak-dashboard/releases/tag/v1.0.3

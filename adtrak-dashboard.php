@@ -3,7 +3,7 @@
 /*
 Plugin Name: Adtrak Dashboard
 Description: Replaces the default dashboard with a developer focused one.
-Version: 1.0.5
+Version: 1.0.6
 Author: Adtrak
 Author URI: https://adtrak.co.uk
 License: GPLv3
@@ -18,22 +18,29 @@ if (!defined('WPINC')) {
 class Adtrak_Dashboard {
 
 	// Variables
-	public $version = 'v1.0.5';
+	public $version = 'v1.0.6';
 
 	// Constructor
 	function __construct() {
-		add_action('plugins_loaded', array(&$this, 'github_updater'));
-		add_action('after_setup_theme', array(&$this, 'backwards_compatibility'));
-		add_action('admin_menu', array(&$this, 'register_menu'));
-		add_action('admin_head', array(&$this, 'remove_menu'));
-		add_action('load-index.php', array(&$this, 'redirect_dashboard'));
+		add_action('init', array(&$this, 'init'));
+	}
+
+	// Initialise function
+	function init(){
+		if (in_array('administrator', wp_get_current_user()->roles)) {
+			add_action('plugins_loaded', array(&$this, 'github_updater'));
+			add_action('after_setup_theme', array(&$this, 'backwards_compatibility'));
+			add_action('admin_menu', array(&$this, 'register_menu'));
+			add_action('admin_head', array(&$this, 'remove_menu'));
+			add_action('load-index.php', array(&$this, 'redirect_dashboard'));
+		};
 	}
 
 	// GitHub updater
 	function github_updater() {
 		require __DIR__ . '/vendor/yahnis-elsts/plugin-update-checker/plugin-update-checker.php';
 		$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-			'https://github.com/EdBartholomew/adtrak-dashboard',
+			'https://github.com/edbartholomew/adtrak-dashboard',
 			__FILE__,
 			'adtrak-dashboard'
 		);
